@@ -1,4 +1,3 @@
-
 <section [style.background-image]="'url(' +CityBanner+ ')'" style="background-size: cover;
 background-attachment: fixed;position: relative;  background-repeat: round;min-height: 360px;" class="category_banner">
 
@@ -16,7 +15,7 @@ background-attachment: fixed;position: relative;  background-repeat: round;min-h
                 {{cityname.name}}
               </option>
             </select>
-  
+
           </div>
         </form>
       </div>
@@ -26,6 +25,32 @@ background-attachment: fixed;position: relative;  background-repeat: round;min-h
 
 <div class="container">
   <div class="row p-4 ">
+    <div class="col-lg-7 col-md-7 col-xl-7 col-sm-7 p-9">
+      <div class="card">
+        <div class="card-body card-body1 text-center"
+          *ngFor="let hospital of hospitals_clinics | paginate : {itemsPerPage: pageSize,currentPage: page, totalItems: count};let i = index">
+          <div class="row card-text ">
+            <div class="col-lg-3 col-md-12 col-xl-3 col-sm-12" (click)="HospitalDetails(hospital._id)">
+              <img class="card-img-top" [src]="hospital.logo" alt="Card image cap">
+            </div>
+            <div class="col-lg-9 col-md-12 col-xl-9 col-sm-12 text-left">
+              <h5 class="card-title">{{hospital.name}}</h5>
+              <p> Address:{{hospital.address}}</p>
+              <p>Location:{{hospital.location}}</p>
+              <div *ngIf="hospital.founded !=null">
+                <p>Founded:{{hospital.founded}}</p>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div><br>
+      <div class="text-center">
+        <pagination-controls previousLabel="Prev" nextLabel="Next" [responsive]="true"
+          (pageChange)="handlePageChange($event)"></pagination-controls>
+      </div>
+    </div>
     <div class="col-lg-5 col-md-5 col-xl-5 col-sm-5 p-9">
       <h2 class="paragraph-title">List of Best Clinics & Hospitals in UAE (2021)</h2>
       <p>With some of the best clinics in UAE, the country is poised to become the global medical tourism hub in the
@@ -48,31 +73,6 @@ background-attachment: fixed;position: relative;  background-repeat: round;min-h
         you will find the clinic address, contact number, reviews, and website to help you find the right one.
       </p>
     </div>
-    <div class="col-lg-7 col-md-7 col-xl-7 col-sm-7 p-9">
-      <div class="card">
-        <div class="card-body card-body1 text-center" 
-        *ngFor="let hospital of hospitals_clinics | paginate : {itemsPerPage: pageSize,currentPage: page, totalItems: count};let i = index">
-          <div class="row card-text " >
-            <div class="col-lg-3 col-md-12 col-xl-3 col-sm-12" (click)="HospitalDetails(hospital._id)">
-              <img class="card-img-top" [src]="hospital.logo" alt="Card image cap">
-            </div>
-            <div class="col-lg-9 col-md-12 col-xl-9 col-sm-12 text-left">
-              <h5 class="card-title">{{hospital.name}}</h5>
-              <p> Address:{{hospital.address}}</p>
-              <p>Location:{{hospital.location}}</p>
-              <div *ngIf="hospital.founded !=null">
-                <p>Founded:{{hospital.founded}}</p>
-              </div>
 
-            </div>
-          </div>
-
-        </div>
-      </div><br>
-      <div class="text-center">
-      <pagination-controls previousLabel="Prev" nextLabel="Next" [responsive]="true"
-      (pageChange)="handlePageChange($event)"></pagination-controls>
-    </div>
-    </div>
   </div>
 </div>
