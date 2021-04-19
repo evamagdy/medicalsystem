@@ -1,0 +1,22 @@
+
+.title{
+    font-weight: bold;
+}
+.data{
+    display: inline;
+}
+a{
+   text-decoration: none;
+   color: black;
+}
+.card-body{
+    background-color: #105674;
+    color:white;
+    
+}
+.tab-content {
+    border: 1px solid;
+    padding: inherit;
+    border-color: #dee2e6 #dee2e6 #fff;
+    border-bottom: 1px solid  #dee2e6;
+}

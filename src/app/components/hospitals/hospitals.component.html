@@ -1,0 +1,78 @@
+
+<section [style.background-image]="'url(' +CityBanner+ ')'" style="background-size: cover;
+background-attachment: fixed;position: relative;  background-repeat: round;min-height: 360px;" class="category_banner">
+
+  <div class="container">
+    <div class="row fullscreen d-flex align-items-center">
+      <div class="col-12 text-center m-auto" style=" padding: 5rem;"><br>
+        <h2 class="animated fadeInUp topTitle panner-title" data-wow-delay="0.5s" style="line-height: 0.9;">
+          Select Your City
+        </h2>
+        <form>
+          <div class="form-group justify-content-center">
+            <select class="custom-select" name="uae" (change)='onUAESelected($event)' required>
+              <option [value]="undefined" disabled selected hidden>City</option>
+              <option [value]="cityname.name" *ngFor="let cityname of City;">
+                {{cityname.name}}
+              </option>
+            </select>
+  
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="row p-4 ">
+    <div class="col-lg-5 col-md-5 col-xl-5 col-sm-5 p-9">
+      <h2 class="paragraph-title">List of Best Clinics & Hospitals in UAE (2021)</h2>
+      <p>With some of the best clinics in UAE, the country is poised to become the global medical tourism hub in the
+        next 5 years. The country has some of the most advanced healthcare facilities in the entire world.Since the UAE
+        offers state of the art medical facilities with excellent medical staff that is trained and highly skilled, most
+        of
+        the <strong>hospital and clinics in the UAE </strong> have a significant expenditure on public health and
+        awareness<br>
+        <strong>Which are the best hospitals in the UAE?</strong><br>
+        In 2000, the country had only three hospitals in the UAE that had international accreditation. By 2016, there
+        were 55 hospitals throughout the country that had the JCI accreditation. Most of these hospitals have introduced
+        best practices and patented medicines that are approved by the USFDA or better known as the US Food and Drug
+        Administration.
+        This accreditation has enabled the availability of highest quality care and medicines with patents drawn from
+        across the world. The country is well equipped to deal with millions coming to its shores for better treatment
+        facilities and proper care. With the public and private sector working closely to build more hospitals and
+        recruit highly qualified foreign doctors and medical staff, the quality of healthcare is going to rise more
+        significantly.
+        Medarabia has put together profiles of some of the best <strong>hospital and clinics in the UAE.</strong> Below,
+        you will find the clinic address, contact number, reviews, and website to help you find the right one.
+      </p>
+    </div>
+    <div class="col-lg-7 col-md-7 col-xl-7 col-sm-7 p-9">
+      <div class="card">
+        <div class="card-body card-body1 text-center" 
+        *ngFor="let hospital of hospitals_clinics | paginate : {itemsPerPage: pageSize,currentPage: page, totalItems: count};let i = index">
+          <div class="row card-text " >
+            <div class="col-lg-3 col-md-12 col-xl-3 col-sm-12" (click)="HospitalDetails(hospital._id)">
+              <img class="card-img-top" [src]="hospital.logo" alt="Card image cap">
+            </div>
+            <div class="col-lg-9 col-md-12 col-xl-9 col-sm-12 text-left">
+              <h5 class="card-title">{{hospital.name}}</h5>
+              <p> Address:{{hospital.address}}</p>
+              <p>Location:{{hospital.location}}</p>
+              <div *ngIf="hospital.founded !=null">
+                <p>Founded:{{hospital.founded}}</p>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div><br>
+      <div class="text-center">
+      <pagination-controls previousLabel="Prev" nextLabel="Next" [responsive]="true"
+      (pageChange)="handlePageChange($event)"></pagination-controls>
+    </div>
+    </div>
+  </div>
+</div>

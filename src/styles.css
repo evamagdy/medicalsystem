@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+
+body {
+    font-family: "Open Sans", sans-serif;
+    color: #444444;
+    -webkit-overflow-scrolling: auto;
+  }
+  
+  a {
+    color: #47b2e4;
+  }
+  
+  a:hover {
+    color: #73c5eb;
+    text-decoration: none;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Jost", sans-serif;
+  }
+  .card {
+    box-shadow: 2px 5px 20px #777;
+}
+.paragraph-title{
+  color:#105674;
+}
+
+
+html, body { height: 100%;   -webkit-overflow-scrolling: auto; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;-webkit-overflow-scrolling: auto; }
