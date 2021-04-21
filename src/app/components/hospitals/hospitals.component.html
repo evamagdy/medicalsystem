@@ -1,5 +1,5 @@
 <section [style.background-image]="'url(' +CityBanner+ ')'" style="background-size: cover;
-background-attachment: fixed;position: relative;  background-repeat: round;min-height: 360px;" class="category_banner">
+  background-repeat: no-repeat;min-height: 360px;" class="category_banner">
 
   <div class="container">
     <div class="row fullscreen d-flex align-items-center">
@@ -29,19 +29,17 @@ background-attachment: fixed;position: relative;  background-repeat: round;min-h
       <div class="card">
         <div class="card-body card-body1 text-center"
           *ngFor="let hospital of hospitals_clinics | paginate : {itemsPerPage: pageSize,currentPage: page, totalItems: count};let i = index">
-          <div class="row card-text ">
-            <div class="col-lg-3 col-md-12 col-xl-3 col-sm-12" (click)="HospitalDetails(hospital._id)">
+          <div class="row card-text" (click)="HospitalDetails(hospital._id)">
+            <div class="col-lg-3 col-md-12 col-xl-3 col-sm-12" >
               <img class="card-img-top" [src]="hospital.logo" alt="Card image cap">
             </div>
             <div class="col-lg-9 col-md-12 col-xl-9 col-sm-12 text-left">
               <h5 class="card-title">{{hospital.name}}</h5>
-              <p> Address:{{hospital.address}}</p>
-              <p>Location:{{hospital.location}}</p>
-             <p> Working Hours:{{hospital.timings}}</p>
-              <div *ngIf="hospital.founded !=null">
-                <p>Founded:{{hospital.founded}}</p>
-              </div>
-
+              <p> <strong>Address</strong> : {{hospital.address}}</p>
+              <p><strong>Location</strong>: {{hospital.location}}</p>
+                  <div *ngIf="hospital.founded !=null">
+                    <p><strong>Founded </strong> : {{hospital.founded}}</p>
+                  </div>
             </div>
           </div>
 

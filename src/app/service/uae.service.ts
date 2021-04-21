@@ -20,8 +20,8 @@ export class UaeService {
   getUaeData(): Observable<any> {
     return this.httpClient.get(`${this.Rest_API}`);
   }
-  getHospitalsData(params: any): Observable<any> {
-    return this.httpClient.get(`${this.Rest_API}/hospitals`, { params });
+  getHospitalsData(): Observable<any> {
+    return this.httpClient.get(`${this.Rest_API}/hospitals`);
   }
   getHospitalsDetails(hospitalId): Observable<any> {
     return this.httpClient.get(`${this.Rest_API}/hospitals/${hospitalId}`);

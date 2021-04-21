@@ -62,9 +62,7 @@ export class HospitalsComponent implements OnInit {
   }
   getHospitals() {
     const params = this.getRequestParams(this.title, this.page, this.pageSize);
-
-    this.uaeService.getHospitalsData(params).subscribe(res => {
-
+    this.uaeService.getHospitalsData().subscribe(res => {
       const { hospitals_clinics, totalItems } = res;
       this.hospitals_clinics = hospitals_clinics;
       this.count = totalItems;
@@ -77,19 +75,19 @@ export class HospitalsComponent implements OnInit {
 
   handlePageChange(event: number): void {
     this.page = event;
-    this.getHospitals();
+    // this.getHospitals();
 
   }
 
-  handlePageSizeChange(event: any): void {
-    this.pageSize = event.target.value;
-    this.page = 1;
-    this.getHospitals();
-  }
+  // handlePageSizeChange(event: any): void {
+  //   this.pageSize = event.target.value;
+  //   this.page = 1;
+  //   this.getHospitals();
+  // }
 
 
   onUAESelected(SelectedUAEName: any): void {
-    this.page = 1;
+   this.page=1
     if (SelectedUAEName == "")
       this.UAE = this.City
     else {
@@ -102,6 +100,7 @@ export class HospitalsComponent implements OnInit {
     console.log(this.hospitals)
     console.log(this.hospitals.flat())
   }
+
   HospitalDetails(hospitalId) {
     this.router.navigate(['hospital-details/', hospitalId])
   }

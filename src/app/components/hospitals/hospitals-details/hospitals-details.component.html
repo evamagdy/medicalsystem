@@ -24,15 +24,18 @@
                         </div>
                         <div class="col-lg-12 col-md-12 col-xl-9 col-sm-12 text-left">
                             <h3 class="card-title">{{hospitalDeails.hospitals_clinics.name}}</h3>
-                            <label class="title">Founded:</label>&nbsp;<p class="data">
-                                {{hospitalDeails.hospitals_clinics.founded}}</p><br>
-                            <label class="title">Address:</label>&nbsp;<p class="data">
+                            <div *ngIf="hospitalDeails.hospitals_clinics.founded !=null">
+                                <label class="title">Founded :</label>&nbsp;<p class="data">
+                                    {{hospitalDeails.hospitals_clinics.founded}}</p><br>
+                            </div>
+                            <label class="title">Address :</label>&nbsp;<p class="data">
                                 {{hospitalDeails.hospitals_clinics.address}}</p> <br>
-                            <label class="title">Number Of Beds:</label>&nbsp;<p class="data">
-                                {{hospitalDeails.hospitals_clinics.numberOfBeds}}</p><br>
-                            <label class="title">Postal Code:</label>&nbsp;<p class="data">
-                                {{hospitalDeails.hospitals_clinics.postalCode}}</p> <br>
-                            <a class="title" href="">VisitWebsite</a>
+                            <div *ngIf="hospitalDeails.hospitals_clinics.phone !=null">
+
+                                <label class="title">Phonee Number :</label>&nbsp;<p class="data">
+                                    {{hospitalDeails.hospitals_clinics.phone}}</p> <br>
+                            </div>
+                            <a class="title" href="{{hospitalDeails.hospitals_clinics.websiteLink}}" style="color:white;text-decoration-line: underline;">Visit Website</a>
                         </div>
                     </div>
                 </div>
@@ -41,16 +44,45 @@
         <div class="col-lg-12 col-md-12 col-xl-12 col-sm-12 p-9">
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
-                  <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Overview</button>
+                    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home"
+                        type="button" role="tab" aria-controls="home" aria-selected="true">Overview</button>
                 </li>
                 <li class="nav-item" role="presentation">
-                  <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Expertise</button>
+                    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile"
+                        type="button" role="tab" aria-controls="profile" aria-selected="false">More Informtion</button>
                 </li>
-              </ul>
-              <div class="tab-content" id="myTabContent">
-                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">{{hospitalDeails.hospitals_clinics.overview}}</div>
-                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">{{hospitalDeails.hospitals_clinics.expertise}}</div>
-              </div><br>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    {{hospitalDeails.hospitals_clinics.overview}}</div>
+                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    <div *ngIf="hospitalDeails.hospitals_clinics.leadership !=null">
+                        <label class="title">Leadership :</label>&nbsp;<p class="data">
+                            {{hospitalDeails.hospitals_clinics.leadership}}</p><br>
+                    </div>
+                    <div *ngIf="hospitalDeails.hospitals_clinics.numberOfStaff !=null">
+                        <label class="title">Number Of Staff :</label>&nbsp;<p class="data">
+                            {{hospitalDeails.hospitals_clinics.numberOfStaff}}</p><br>
+                    </div>
+                    <div *ngIf="hospitalDeails.hospitals_clinics.numberOfBeds !=null">
+                        <label class="title">Number Of Beds :</label>&nbsp;<p class="data">
+                            {{hospitalDeails.hospitals_clinics.numberOfBeds}}</p><br>
+                    </div>
+                    <div *ngIf="hospitalDeails.hospitals_clinics.postalCode !=null">
+                        <label class="title">Postal Code :</label>&nbsp;<p class="data">
+                            {{hospitalDeails.hospitals_clinics.postalCode}}</p> <br>
+                    </div>
+                    <div *ngIf="hospitalDeails.hospitals_clinics.timings !=null">
+                        <label class="title">Working Hours :</label>&nbsp;<p class="data">
+                            {{hospitalDeails.hospitals_clinics.timings}}</p> <br>
+                    </div>
+                    <div *ngIf="hospitalDeails.hospitals_clinics.expertise !=null">
+                        <label class="title">Expertise :</label>&nbsp;<p class="data">
+                            {{hospitalDeails.hospitals_clinics.expertise}}</p> <br>
+                    </div>
+
+                </div>
+            </div><br>
         </div>
     </div>
 </div>
