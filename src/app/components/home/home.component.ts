@@ -1,5 +1,6 @@
 import { Component, OnInit,Input } from '@angular/core';
 import { UaeService } from '../../service/uae.service';
+import AOS from 'aos';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -12,6 +13,10 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    AOS.init({
+      duration: 1000,
+    })
+    
   }
   imgCollection: Array<object> = [
     {
