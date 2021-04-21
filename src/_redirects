@@ -1,6 +1,4 @@
-/*    /index.html 200
-
-/home              /
-/hospitals-clinics  /hospitals-clinics
-/hospital-details/:hospitalId              /hospital-details/:hospitalId
-/insurance            /insurance
+# A basic redirects rule
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
