@@ -1,1 +1,84 @@
-<p>insurance works!</p>
+<section [style.background-image]="'url(' +CityBanner+ ')'" style="background-size: cover;
+  background-repeat: no-repeat;min-height: 360px;" class="category_banner">
+
+  <div class="container">
+    <div class="row fullscreen d-flex align-items-center">
+      <div class="col-12 text-center m-auto" style=" padding: 7rem;"><br>
+        <form>
+          <div class="form-group justify-content-center">
+            <select class="custom-select" name="uae" (change)='onUAESelected($event)' required>
+              <option [value]="undefined" disabled selected hidden>Select Your City</option>
+              <option [value]="cityname.name" *ngFor="let cityname of City;">
+                {{cityname.name}}
+              </option>
+            </select>
+
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="row p-4 ">
+    <div class="col-lg-7 col-md-7 col-xl-7 col-sm-7 p-9">
+      <div class="card">
+        <div class="card-body card-body1 text-center"
+          *ngFor="let insurance of insurance_companies | paginate : {itemsPerPage: pageSize,currentPage: page, totalItems: count};let i = index">
+          <div class="row card-text" (click)="InsuranceDetails(insurance._id)">
+            <div class="col-lg-3 col-md-12 col-xl-3 col-sm-12">
+              <img class="card-img-top" [src]="insurance.logo" alt="Card image cap">
+            </div>
+            <div class="col-lg-9 col-md-12 col-xl-9 col-sm-12 text-left">
+              <h5 class="card-title">{{insurance.name}}</h5>
+              <p> <strong>Address</strong> : {{insurance.address}}</p>
+              <p><strong>Location</strong>: {{insurance.location}}</p>
+              <div *ngIf="insurance.founded !=null">
+                <p><strong>Founded </strong> : {{insurance.founded}}</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div><br>
+      <div class="text-center">
+        <pagination-controls previousLabel="Prev" nextLabel="Next" [responsive]="true"
+          (pageChange)="handlePageChange($event)"></pagination-controls>
+      </div>
+    </div>
+    <div class="col-lg-5 col-md-5 col-xl-5 col-sm-5 p-9">
+      <h2 class="paragraph-title">List of 90 Best Insurance Providers in UAE (2021)</h2>
+      <p>
+        Under the Thiqa programme, the Emirate of Abu Dhabi, the capital of the UAE, provides a full medical cover for
+        its citizens. With the Thiqa card, the citizens can get full and comprehensive access to a large number of
+        public and private healthcare providers in the city.<strong>Health insurance in the UAE </strong> can bring in
+        benefits and coverage in times of need for the patients.
+
+        Compare the best & cheapest health insurance companies in the UAE
+        In the city of Dubai, the Saada is the health insurance programme that helps cover all citizens with care and
+        concern. If you are a resident expatriate, the cost of healthcare can be huge in this country.<strong> Health
+          insurance
+          in UAE </strong>often mandatory for all expats to have. The extent of the health insurance coverage is often
+        determined
+        by the kind of work the worker does and the salary he or she gets. The designation and the sector often
+        determine the kind of insurance an expat can avail.
+
+        In the emirate of Abu Dhabi, employers and sponsors should be able to provide for the best <strong>health
+          insurance in
+          UAE </strong>for its employee, one spouse and up to three children not above 18 years of age.
+
+        In the emirate of Dubai, the company that brings in the foreign worker should provide health insurance coverage
+        for him or her. Sponsors are required to cover the dependents as well.
+
+        There are many lists of the best <strong>health insurance in UAE</strong>; you can have a look at the one given
+        below for an idea
+        about some providers that can help you at the time of a medical emergency and need.
+
+        Medarabia has put together profiles of some of the providers of best health insurance in UAE. Below you will
+        find the location map, address information, contact details, patient reviews to help you find the right one.
+      </p>
+    </div>
+
+  </div>
+</div>

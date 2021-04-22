@@ -31,7 +31,6 @@ export class HospitalsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
     this.getHospitals();
     this.uaeService.getUaeData().subscribe(res => {
       this.UAES = res.uae;
@@ -42,33 +41,14 @@ export class HospitalsComponent implements OnInit {
     })
 
   }
-  getRequestParams(searchTitle: string, page: number, pageSize: number): any {
-    // tslint:disable-next-line:prefer-const
-    let params: any = {};
 
-    if (searchTitle) {
-      params[`title`] = searchTitle;
-    }
-
-    if (page) {
-      params[`page`] = page - 1;
-    }
-
-    if (pageSize) {
-      params[`size`] = pageSize;
-    }
-
-    return params;
-  }
   getHospitals() {
-    const params = this.getRequestParams(this.title, this.page, this.pageSize);
     this.uaeService.getHospitalsData().subscribe(res => {
       const { hospitals_clinics, totalItems } = res;
       this.hospitals_clinics = hospitals_clinics;
       this.count = totalItems;
       console.log(res);
-      this.hospitals_clinics = res.result.flat();
-      console.log(this.hospitals)
+
 
     })
   }
@@ -87,7 +67,7 @@ export class HospitalsComponent implements OnInit {
 
 
   onUAESelected(SelectedUAEName: any): void {
-   this.page=1
+    this.page = 1
     if (SelectedUAEName == "")
       this.UAE = this.City
     else {
