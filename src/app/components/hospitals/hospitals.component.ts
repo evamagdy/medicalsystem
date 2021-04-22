@@ -2,6 +2,7 @@ import { Component, OnInit, resolveForwardRef } from '@angular/core';
 import { Uae } from 'src/app/service/uae';
 import { UaeService } from '../../service/uae.service';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from "ngx-spinner";
 @Component({
   selector: 'app-hospitals',
   templateUrl: './hospitals.component.html',
@@ -26,15 +27,26 @@ export class HospitalsComponent implements OnInit {
   count = 0;
   pageSize = 5;
   pageSizes = [5, 10, 15];
-  constructor(private uaeService: UaeService, private router: Router) {
+  constructor(private uaeService: UaeService, private router: Router, private spinner: NgxSpinnerService) {
 
   }
 
   ngOnInit(): void {
+    // /** spinner starts on init */
+    // this.spinner.show();
+
+    // setTimeout(() => {
+    //   /** spinner ends after 5 seconds */
+    //   this.spinner.hide();
+    // }, 5000);
+
+
     this.getHospitals();
+    this.spinner.show();
     this.uaeService.getUaeData().subscribe(res => {
       this.UAES = res.uae;
       this.City = res.uae;
+      this.spinner.hide();
       console.log("jjjjjjjjj" + res)
       console.log("UAEEEE" + JSON.stringify(this.UAE))
 
@@ -43,10 +55,12 @@ export class HospitalsComponent implements OnInit {
   }
 
   getHospitals() {
+    this.spinner.show();
     this.uaeService.getHospitalsData().subscribe(res => {
       const { hospitals_clinics, totalItems } = res;
       this.hospitals_clinics = hospitals_clinics;
       this.count = totalItems;
+      this.spinner.hide();
       console.log(res);
 
 

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { OutletContext, RouterOutlet } from '@angular/router';
 // import { slider, transformer, fader, stepper } from './route-animations'
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
