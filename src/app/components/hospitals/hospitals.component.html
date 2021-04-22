@@ -3,14 +3,11 @@
 
   <div class="container">
     <div class="row fullscreen d-flex align-items-center">
-      <div class="col-12 text-center m-auto" style=" padding: 5rem;"><br>
-        <h2 class="animated fadeInUp topTitle panner-title" data-wow-delay="0.5s" style="line-height: 0.9;">
-          Select Your City
-        </h2>
+      <div class="col-12 text-center m-auto" style=" padding: 7rem;"><br>
         <form>
           <div class="form-group justify-content-center">
             <select class="custom-select" name="uae" (change)='onUAESelected($event)' required>
-              <option [value]="undefined" disabled selected hidden>City</option>
+              <option [value]="undefined" disabled selected hidden>Select Your City</option>
               <option [value]="cityname.name" *ngFor="let cityname of City;">
                 {{cityname.name}}
               </option>
