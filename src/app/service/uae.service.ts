@@ -26,7 +26,11 @@ export class UaeService {
   getHospitalsDetails(hospitalId): Observable<any> {
     return this.httpClient.get(`${this.Rest_API}/hospitals/${hospitalId}`);
   }
+
   getInsuranceData():Observable<any>{
     return this.httpClient.get(`${this.Rest_API}/insurance-companies`);
+  }
+  getInsuranceDetails(insurancelId): Observable<any> {
+    return this.httpClient.get(`${this.Rest_API}/insurance-companies/${insurancelId}`);
   }
 }

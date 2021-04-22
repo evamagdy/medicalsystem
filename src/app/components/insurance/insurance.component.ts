@@ -63,8 +63,8 @@ export class InsuranceComponent implements OnInit {
     console.log(this.insurance.flat())
   }
 
-  HospitalDetails(hospitalId) {
-    this.router.navigate(['hospital-details/', hospitalId])
+  InsuranceDetails(insuranceId) {
+    this.router.navigate(['insurance-details/', insuranceId])
   }
 
 }

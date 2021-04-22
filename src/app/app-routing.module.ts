@@ -29,6 +29,11 @@ const routes: Routes = [
     data: { animation: 'isRight' }
   },
   {
+    path: 'insurance-details/:insuranceId',
+    loadChildren: () => import('./components/insurance/insurance-details/insurance-details.module').then(m => m.InsuranceDetailsModule),
+   
+  },
+  {
     path: 'pharmacies',
     loadChildren: () => import('./components/pharmacies/pharmacies.module').then(m => m.PharmaciesModule),
     data: { animation: 'isRight' }
