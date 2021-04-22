@@ -38,7 +38,7 @@ export class InsuranceComponent implements OnInit {
       const { insurance_companies, totalItems } = res;
       this.insurance_companies = insurance_companies;
       this.count = totalItems;
-      console.log("insurance_companies"+insurance_companies);
+      console.log(insurance_companies);
       // this.insurance_companies = res.result.flat();
 
     })
