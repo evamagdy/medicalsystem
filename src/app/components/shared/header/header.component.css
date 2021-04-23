@@ -8,3 +8,11 @@
 .navbar-brand img{
     width: 3em;
 }
+.active{
+    color:#BFA947;
+  
+  }
+  .navbar-nav .nav-link.active {
+    -webkit-box-shadow: 0 -3px 0 0 #00a887 inset;
+    box-shadow: 0 -3px 0 0 #00a887 inset;
+}

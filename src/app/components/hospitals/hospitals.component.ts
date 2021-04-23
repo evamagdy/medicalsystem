@@ -15,7 +15,6 @@ export class HospitalsComponent implements OnInit {
   City: Uae[];
   UAES: [];
   uaeSelected: any;
-  // hospitals_clinics: any;
   hospitals: any;
   /* pagination */
   hospitals_clinics: Uae[] = [];
@@ -39,7 +38,7 @@ export class HospitalsComponent implements OnInit {
     //   /** spinner ends after 5 seconds */
     //   this.spinner.hide();
     // }, 5000);
-
+    window.scrollTo(0, 0);
 
     this.getHospitals();
     this.spinner.show();

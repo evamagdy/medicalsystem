@@ -25,6 +25,7 @@ export class InsuranceComponent implements OnInit {
   constructor(private uaeService: UaeService, private router: Router, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
+    window.scrollTo(0, 0);
     this.getInsuranceCompanies();
     this.spinner.show();
     this.uaeService.getUaeData().subscribe(res => {
@@ -33,10 +34,11 @@ export class InsuranceComponent implements OnInit {
       this.UAES = res.uae;
       this.UAES.forEach(element => {
         this.insurance_companies = element["insurance_companies"]
-        if (this.insurance_companies != Array(0)) {
+        if (this.insurance_companies.length != 0) {
+          console.log("gggggg");
           
         }
-        console.log(this.insurance_companies)
+     
       });
       console.log(res.uae)
       this.spinner.hide();
