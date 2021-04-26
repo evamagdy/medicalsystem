@@ -8,8 +8,14 @@
           <div class="form-group justify-content-center">
             <select class="custom-select" name="uae" (change)='onUAESelected($event)' required>
               <option [value]="undefined" disabled selected hidden>Select Your City</option>
-              <option [value]="cityname.name" *ngFor="let cityname of City;">
-                {{cityname.name}}
+              <option>
+                Abu Dhabi
+              </option>
+              <option >
+                Dubai
+              </option>
+              <option>
+                Sharjah
               </option>
             </select>
 

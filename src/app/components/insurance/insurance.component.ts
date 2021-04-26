@@ -34,10 +34,7 @@ export class InsuranceComponent implements OnInit {
       this.UAES = res.uae;
       this.UAES.forEach(element => {
         this.insurance_companies = element["insurance_companies"]
-        if (this.insurance_companies.length != 0) {
-          console.log("gggggg");
-          
-        }
+      
      
       });
       console.log(res.uae)
