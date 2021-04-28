@@ -4,5 +4,6 @@ export class Uae {
   image: string;
   hospitals_clinics: any;
   insurance_companies: any;
+  pharmacies:any
 
 }

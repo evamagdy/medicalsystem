@@ -38,6 +38,11 @@ const routes: Routes = [
     loadChildren: () => import('./components/pharmacies/pharmacies.module').then(m => m.PharmaciesModule),
     data: { animation: 'isRight' }
   },
+  {
+    path: 'pharmacy-details/:pharmacyId',
+    loadChildren: () => import('./components/pharmacies/pharmacy-details/pharmacy-details.module').then(m => m.PharmacyDetailsModule),
+   
+  },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -8,7 +8,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse, HttpParams } from '@angular
 })
 export class UaeService {
   // node/express api
-  
+
   Rest_API: string = 'https://medicalsystem.herokuapp.com/uae';
   // Rest_API: string = 'http://localhost:3000/uae';
   // http headers
@@ -27,10 +27,16 @@ export class UaeService {
     return this.httpClient.get(`${this.Rest_API}/hospitals/${hospitalId}`);
   }
 
-  getInsuranceData():Observable<any>{
+  getInsuranceData(): Observable<any> {
     return this.httpClient.get(`${this.Rest_API}/insurance-companies`);
   }
   getInsuranceDetails(insurancelId): Observable<any> {
     return this.httpClient.get(`${this.Rest_API}/insurance-companies/${insurancelId}`);
+  }
+  getPharmacyeData(): Observable<any> {
+    return this.httpClient.get(`${this.Rest_API}/pharmacies`);
+  }
+  getPharmacyDetails(pharmacyId): Observable<any> {
+    return this.httpClient.get(`${this.Rest_API}/pharmacies/${pharmacyId}`);
   }
 }
