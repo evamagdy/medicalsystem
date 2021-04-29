@@ -32,11 +32,6 @@ export class InsuranceComponent implements OnInit {
 
       this.City = res.uae;
       this.UAES = res.uae;
-      this.UAES.forEach(element => {
-        this.insurance_companies = element["insurance_companies"]
-      
-     
-      });
       console.log(res.uae)
       this.spinner.hide();
 
