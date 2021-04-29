@@ -1,4 +1,4 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ViewChildren, QueryList } from '@angular/core';
 import { UaeService } from '../../service/uae.service';
 import AOS from 'aos';
 @Component({
@@ -7,16 +7,51 @@ import AOS from 'aos';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  @Input() Hospitals:any;
-  constructor(private uaeService: UaeService) { 
+  @Input() Hospitals: any;
+  @ViewChild("oneItem") oneItem: any;
+  @ViewChildren("count") count: QueryList<any>;
+
+  constructor(private uaeService: UaeService) {
     this.Hospitals = this.uaeService.getUaeData();
   }
+
 
   ngOnInit(): void {
     AOS.init({
       duration: 1000,
     })
-    
+
+  }
+  ngAfterViewInit() {
+    this.animateCount();
+  }
+
+  animateCount() {
+    let _this = this;
+
+    let single = this.oneItem.nativeElement.innerHTML;
+
+    this.counterFunc(single, this.oneItem, 7000);
+
+    this.count.forEach(item => {
+      _this.counterFunc(item.nativeElement.innerHTML, item, 2000);
+    });
+  }
+
+  counterFunc(end: number, element: any, duration: number) {
+    let range, current: number, step, timer;
+
+    range = end - 0;
+    current = 0;
+    step = Math.abs(Math.floor(duration / range));
+
+    timer = setInterval(() => {
+      current += 1;
+      element.nativeElement.textContent = current;
+      if (current == end) {
+        clearInterval(timer);
+      }
+    }, step);
   }
   imgCollection: Array<object> = [
     {
@@ -50,5 +85,5 @@ export class HomeComponent implements OnInit {
       title: 'Julphar Implant & Cosmetic Dental Center',
       alt: 'Image 6'
     }
-];
+  ];
 }
