@@ -8,8 +8,17 @@
                     <div class="form-group justify-content-center">
                         <select class="custom-select" name="uae" (change)='onUAESelected($event)' required>
                             <option [value]="undefined" disabled selected hidden>Select Your City</option>
-                            <option [value]="cityname.name" *ngFor="let cityname of City;">
-                                {{cityname.name}}
+                            <option>
+                                Abu Dhabi
+                            </option>
+                            <option>
+                                Dubai
+                            </option>
+                            <option>
+                                Sharjah
+                            </option>
+                            <option>
+                                Ras al Khaimah
                             </option>
                         </select>
 
@@ -45,7 +54,7 @@
             </div>
         </div>
         <div class="col-lg-5 col-md-5 col-xl-5 col-sm-5 p-9">
-            <h2 class="paragraph-title">List of  Best Pharmacies Providers in UAE (2021)</h2>
+            <h2 class="paragraph-title">List of Best Pharmacies Providers in UAE (2021)</h2>
             <p>
                 Pharmacy profession is evolving steadily in the United Arab Emirates (UAE). This article presents a
                 brief overview of the profession, and highlights some of the advances and challenges that face pharmacy
